@@ -7,6 +7,7 @@ import {
   HomeImg,
 } from './styles'
 import CategoryCarousel from "../../components/CategoryCarousel";
+import OffersCarousel from "../../components/OffersCarousel";
 
 function Home(){
 
@@ -14,6 +15,7 @@ function Home(){
     <Container>
       <HomeImg src={HomeLogo} alt="logo-home" />
       <CategoryCarousel />
+      <OffersCarousel />
     </Container>
   )
 }

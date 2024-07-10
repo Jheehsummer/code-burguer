@@ -8,6 +8,7 @@ import styled from "styled-components"
   border: none;
   background: #9758A6;
   color: #f1f1f1;
+  box-shadow: 0px 4px 4px 0px #00000040;
   font-size: 16px;
   font-weight: 500;
   line-height: 24px;

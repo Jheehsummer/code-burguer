@@ -17,7 +17,7 @@ function CategoryCarousel() {
   useEffect(() => {
     async function loadCategories(){
       const { data } = await api.get('categories')
-
+      
       setCategories(data)
     }
 
