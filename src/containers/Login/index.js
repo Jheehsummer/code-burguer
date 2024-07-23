@@ -7,7 +7,7 @@ import api from "../../services/api";
 import { useUser } from '../../hooks/UserContext'
 import { useHistory } from 'react-router-dom'
 
-import Button from "../../components/Button";
+import {Button} from "../../components";
 import CodeBurguer from '../../assets/codeburguer.svg'
 
 import { 
@@ -21,7 +21,7 @@ import {
   Link,
 } from './styles'
 
-function Login(){
+export function Login(){
 
   const history = useHistory()
   const {putUserData} = useUser()
@@ -61,9 +61,11 @@ function Login(){
   putUserData(data) 
   
   setTimeout(() => {
-
+    if(data.admin){
+      history.push('/pedidos')
+    } else {
     history.push('/')
-      
+    }
   }, 1000);
 
   }
@@ -101,4 +103,3 @@ function Login(){
   )
 }
 
-export default Login;

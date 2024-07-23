@@ -2,17 +2,17 @@ import React, {useEffect, useState} from "react";
 import Category from "../../assets/categorias.svg"
 import api from '../../services/api'
 import Carousel from 'react-elastic-carousel';
-import Button from '../Button'
 
 import {
   Container,
   CategoryImg,
   ContainerItems,
   Image, 
+  Button,
   
 } from './styles'
 
-function CategoryCarousel() {
+ export function CategoryCarousel() {
   const [categories, setCategories] = useState([])
   useEffect(() => {
     async function loadCategories(){
@@ -41,12 +41,13 @@ function CategoryCarousel() {
 
             <ContainerItems key={category.id}>
               <Image src={category.url} alt='foto da categoria' />
-              <Button style={{ borderRadius: '10px' }} >{category.name}</Button>
+              <Button to={{
+                pathname: '/produtos',
+                state: {categoryId: category.id}
+              }}>{category.name}</Button>
             </ContainerItems>
           ))}
         </Carousel>
     </Container>
   )
 }
-
-export default CategoryCarousel

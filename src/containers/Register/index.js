@@ -5,7 +5,7 @@ import * as Yup from 'yup'
 import api from "../../services/api";
 import { toast } from "react-toastify";
 
-import Button from "../../components/Button";
+import { Button } from "../../components";
 import CodeBurguer from '../../assets/codeburguer.svg'
 
 import {
@@ -19,7 +19,7 @@ import {
   Link,
  } from './styles'
 
-function Register() {
+export function Register() {
 
 
   const schema = Yup.object({
@@ -129,4 +129,3 @@ function Register() {
   )
 }
 
-export default Register;
