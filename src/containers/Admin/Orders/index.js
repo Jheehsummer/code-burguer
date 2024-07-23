@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Container, Menu, LinkMenu } from "./styles";
-import  api from '../../../services/api'
+import api from '../../../services/api';
 import status from "./order-status";
 
 import Table from '@mui/material/Table';
@@ -14,22 +14,20 @@ import Row from "./row";
 import formatDate from "../../../utils/formatDate";
 
 function Orders() {
-  const [orders, setOrders] = useState([])
-  const [filteredOrders, setFilteredOrdes] = useState([])
-  const [activeStatus, setActiveStatus] = useState([1])
-  const [rows, setRows] = useState([])
-  
-  
+  const [orders, setOrders] = useState([]);
+  const [filteredOrders, setFilteredOrders] = useState([]);
+  const [activeStatus, setActiveStatus] = useState(1);
+  const [rows, setRows] = useState([]);
+
   useEffect(() => {
     async function loadOrders() {
-      const { data } = await api.get('orders')
-
-      setOrders(data)
-      setFilteredOrdes(data)
+      const { data } = await api.get('orders');
+      setOrders(data);
+      setFilteredOrders(data);
     }
 
-    loadOrders()
-  }, [])
+    loadOrders();
+  }, []);
 
   function createData(order) {
     return {
@@ -37,73 +35,75 @@ function Orders() {
       orderId: order._id,
       date: formatDate(order.createdAt),
       status: order.status,
-      products: order.products
-      
+      products: order.products,
     };
   }
 
- useEffect(() => {
-    const newRows = filteredOrders.map( ord => createData(ord))
-    setRows(newRows)
- }, [filteredOrders])
+  useEffect(() => {
+    const newRows = filteredOrders.map(ord => createData(ord));
+    setRows(newRows);
+  }, [filteredOrders]);
 
- useEffect(() => {
-  if (activeStatus === 1) {
-    setFilteredOrdes(orders)
-  } else {
-  const statusIndex = status.findIndex(sts => sts.id === activeStatus)
-  const newFilteredOrders = orders.filter(order => order.status === status[statusIndex].value)
-    setFilteredOrdes(newFilteredOrders)
-  }
-  }, [activeStatus, orders])
-
-  function handleStatus(status){
-    if(status.id === 1) {
-      setFilteredOrdes(orders)
+  useEffect(() => {
+    if (activeStatus === 1) {
+      setFilteredOrders(orders);
     } else {
-      const newOrders = orders.filter(order => order.status === status.value)
-      setFilteredOrdes(newOrders)
+      const statusIndex = status.findIndex(sts => sts.id === activeStatus);
+      if (statusIndex !== -1) {
+        const newFilteredOrders = orders.filter(order => order.status === status[statusIndex].value);
+        setFilteredOrders(newFilteredOrders);
+      }
     }
-    setActiveStatus(status.id)
+  }, [activeStatus, orders]);
 
+  function handleStatus(status) {
+    if (status.id === 1) {
+      setFilteredOrders(orders);
+    } else {
+      const newOrders = orders.filter(order => order.status === status.value);
+      setFilteredOrders(newOrders);
+    }
+    setActiveStatus(status.id);
   }
-  
+
   return (
     <Container>
       <Menu>
-        { status && status.map( status => (
-          <LinkMenu key={status.id} 
+        {status && status.map(status => (
+          <LinkMenu
+            key={status.id}
             onClick={() => handleStatus(status)}
             isActiveStatus={activeStatus === status.id}
           >
             {status.label}
-          </LinkMenu>))}
+          </LinkMenu>
+        ))}
       </Menu>
-         <TableContainer component={Paper}>
-      <Table aria-label="collapsible table">
-        <TableHead>
-          <TableRow>
-            <TableCell />
-            <TableCell >Pedido</TableCell>
-            <TableCell >Cliente</TableCell>
-            <TableCell >Data do pedido</TableCell>
-            <TableCell >Status</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-         {rows.map((row) => (
-            <Row 
-            key={row.orderId} 
-            row={row} 
-            setOrders={setOrders}
-            orders={orders}
-            />
-          )) }
-        </TableBody>
-      </Table>
-    </TableContainer>
+      <TableContainer component={Paper}>
+        <Table aria-label="collapsible table">
+          <TableHead>
+            <TableRow>
+              <TableCell />
+              <TableCell>Pedido</TableCell>
+              <TableCell>Cliente</TableCell>
+              <TableCell>Data do pedido</TableCell>
+              <TableCell>Status</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {rows.map((row) => (
+              <Row
+                key={row.orderId}
+                row={row}
+                setOrders={setOrders}
+                orders={orders}
+              />
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
     </Container>
-  )
+  );
 }
 
-export default Orders
+export default Orders;
