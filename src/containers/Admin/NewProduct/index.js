@@ -41,6 +41,13 @@ function NewProduct() {
 
   const onSubmit = async data => {
     const productDataFormData = new FormData()
+    productDataFormData.append('name', data.name)
+    productDataFormData.append('price', data.price)
+    productDataFormData.append('category_id', data.category.id)
+    productDataFormData.append('file', data.file[0])
+
+    await api.post('/products', productDataFormData)
+
     console.log(productDataFormData)
   }
 
