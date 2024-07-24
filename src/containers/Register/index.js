@@ -5,7 +5,7 @@ import * as Yup from 'yup'
 import api from "../../services/api";
 import { toast } from "react-toastify";
 
-import { Button } from "../../components";
+import { Button, ErrorMessage } from "../../components";
 import CodeBurguer from '../../assets/codeburguer.svg'
 
 import {
@@ -15,7 +15,6 @@ import {
   Label,
   Input,
   SignInLink,
-  ErrorMessage,
   Link,
  } from './styles'
 

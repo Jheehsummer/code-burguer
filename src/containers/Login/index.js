@@ -7,7 +7,7 @@ import api from "../../services/api";
 import { useUser } from '../../hooks/UserContext'
 import { useHistory } from 'react-router-dom'
 
-import {Button} from "../../components";
+import {Button, ErrorMessage} from "../../components";
 import CodeBurguer from '../../assets/codeburguer.svg'
 
 import { 
@@ -17,7 +17,6 @@ import {
   Label,
   Input,
   SignInLink,
-  ErrorMessage,
   Link,
 } from './styles'
 

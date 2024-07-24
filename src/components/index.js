@@ -5,4 +5,6 @@ export * from './CartResume'
 export * from './CategoryCarousel'
 export * from './OffersCarousel'
 export * from './Header'
+export * from './SideMenuAdmin'
+export * from './ErrorMessage'
 

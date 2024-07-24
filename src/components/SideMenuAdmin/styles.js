@@ -1,82 +1,39 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const Container = styled.div`
-  background-color: #ffffff;
-  box-shadow: 0px 10px 40px 0px rgba(0, 0, 0, 0.03);
-  border-radius: 20px;
-  padding: 10px;
-  width: 70%;
-`
+  background: #3c3c3c;
+  box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.15);
+  width: 300px;
+  top: 0;
+  left: 0;
 
-export const Header = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 2fr 1fr 1fr 1fr 1fr;
-  padding: 10px;
-  border-bottom: 2px solid #9758A6;
-  text-align: center;
-
-  p {
-    font-size: 16px;
-    color: #9758A6;
+  hr {
+    margin: 75px 15px;
   }
-`
 
-export const Body = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 2fr 1fr 1fr 1fr 1fr;
-  width: max-content;
-  grid-gap: 10px 15px;
-  padding: 10px;
+`
+export const ItemContainer = styled.div`
+  height: 60px;
+  display: flex;
   align-items: center;
-  text-align: start;
-  
+  background: ${props => (props.isActive ? ' #565656' : 'none')};
+  border-radius: 2px;
+  margin: 8px;
+  padding-left: 20px;
 
-  p {
-    font-size: 16px;
-    color: #000000;
-    font-weight: bold;
-  } 
-
-  button {
-    height: 20px;
-    width: 20px;
-    background-color: #9758A6;
-    border: none;
-    color: #ffffff;
-    cursor: pointer;
-
-  &:hover {
-    opacity: 0.8;
+  .icon {
+    color: #efefef;
+   
   }
-
-  &:active {
-    opacity: 0.6;
-  }
-}
-
-  .quantity-container{
-    display: flex;
-    gap: 10px;
-  }
-
 `
-export const NameProducts = styled.p`
+export const ListLink = styled(Link)`
+  color: #efefef;
   font-size: 16px;
-  color: #000000;
-  font-weight: bold;  
-  word-wrap: break-word;
-  width: 150px;
+  font-weight: normal;
+  line-height: 20px;
+  text-align: left;
+  font-style: normal;
+  margin-left: 10px;
 
-`
-export const EmptyCart = styled.p`
-  padding: 20px;
-  text-align: center;
-  font-weight: bold;
-`
-export const Image = styled.img`
-  border-radius: 10px;
-  width: 120px;
-`
-export const ImageTrash = styled.img`
-  
 `

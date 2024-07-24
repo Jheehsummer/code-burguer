@@ -99,11 +99,3 @@ export const Link = styled(ReactLink)`
   }
   
 `
-export const ErrorMessage = styled.p`
-  color: #cc1717;
-  font-style: normal;
-  font-size: 14px;
-  font-weight: bold;
-  line-height: 16px;
-  margin-top: 5px;
-`

@@ -109,5 +109,5 @@ export const useCart = () => {
 }
 
 CartProvider.propTypes = {
-  children: PropTypes.node
+  n: PropTypes.node
 }
