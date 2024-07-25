@@ -49,9 +49,7 @@ function Row({row, setOrders, orders}) {
             {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
           </IconButton>
         </TableCell>
-        <TableCell component="th" scope="row">
-          {row.orderId}
-        </TableCell>
+        
         <TableCell >{row.name}</TableCell>
         <TableCell >{row.date}</TableCell>
         <TableCell >
@@ -67,6 +65,9 @@ function Row({row, setOrders, orders}) {
           }}
           isLoading={isLoading}
           />
+        </TableCell>
+        <TableCell component="th" scope="row">
+          {row.orderId}
         </TableCell>
         <TableCell ></TableCell>
       </TableRow>

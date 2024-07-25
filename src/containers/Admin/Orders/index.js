@@ -84,10 +84,10 @@ function Orders() {
           <TableHead>
             <TableRow>
               <TableCell />
-              <TableCell>Pedido</TableCell>
-              <TableCell>Cliente</TableCell>
-              <TableCell>Data do pedido</TableCell>
-              <TableCell>Status</TableCell>
+              <TableCell >Cliente</TableCell>
+              <TableCell >Data do pedido</TableCell>
+              <TableCell >Status</TableCell>
+              <TableCell >Pedido</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>

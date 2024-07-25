@@ -10,6 +10,9 @@ import LocalOfferOutlinedIcon from '@mui/icons-material/LocalOfferOutlined';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import formatCurrency from "../../../utils/formatCurrency";
 import TableHead from '@mui/material/TableHead';
+import { useHistory } from "react-router-dom/";
+import paths from "../../../constants/paths";
+
 
 
 import {
@@ -21,6 +24,9 @@ import {
 
 function ListProducts() {
   const [products, setProducts] = useState()
+  const { push } = useHistory()
+
+  
   useEffect(() => {
     async function loadOrders() {
       const { data } = await api.get('products');
@@ -37,6 +43,10 @@ function ListProducts() {
     }
     return <HighlightOffIcon style={{ color: '#ff0000' }} />
 
+  }
+
+  function editProduct(product){
+    push(paths.EditProduct, { product })
   }
 
   return (
@@ -69,7 +79,7 @@ function ListProducts() {
                   <TableCell align='center'>{isOffer(product.offer)}</TableCell>
 
                   <TableCell>
-                    <EditIcon />
+                    <EditIcon onClick={() => editProduct(product)}/>
                   </TableCell>
                 </TableRow>
               ))}
