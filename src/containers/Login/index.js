@@ -93,8 +93,8 @@ export function Login(){
       error={errors.password?.message}/>
       <ErrorMessage>{errors.password?.message}</ErrorMessage>
 
-      <Button type='submit' style={{ marginTop: 50, marginBottom: 10, }}>Sign In</Button>
-      <SignInLink>Não possui conta? <Link to="/cadastro">Sign Up</Link></SignInLink>
+      <Button type='submit' style={{ marginTop: 50, marginBottom: 10, }}>Entrar</Button>
+      <SignInLink>Não possui conta? <Link to="/cadastro">Criar conta</Link></SignInLink>
       </form>
 
       </ContainerLogin>

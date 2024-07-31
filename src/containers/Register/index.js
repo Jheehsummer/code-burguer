@@ -118,9 +118,9 @@ export function Register() {
           <ErrorMessage>{errors.confirmPassword?.message}</ErrorMessage>
 
           <Button type='submit' style={{ marginTop: 35, marginBottom: 10 }}>
-            Sign Up
+            Criar conta
           </Button>
-          <SignInLink>Já possui conta? <Link to="/login">Sign In</Link></SignInLink>
+          <SignInLink>Já possui conta? <Link to="/login">Entrar</Link></SignInLink>
         </form>
 
       </ContainerLogin>
